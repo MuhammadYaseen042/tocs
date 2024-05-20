@@ -1,18 +1,18 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
-            
-                steps {
-              sh 'node --version'
-            
-                
-            }
-            stage('Test'){
             steps {
-                sh 'node App.js'
+                echo 'Building App...'
+                sh  'node --version'
             }
         }
-    }
+        stage('Test') {
+            steps {
+                echo 'Testing App...'
+                sh 'node App.js'
+            }
+}
 }
 }
