@@ -1,15 +1,18 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        stage('Example') {
-            agent any
-            options {
-                // Timeout counter starts BEFORE agent is allocated
-                timeout(time: 1, unit: 'SECONDS')
+        stage('Build') {
+            
+                steps {
+              sh 'node --version'
+            
+                
             }
+            stage('Test'){
             steps {
                 sh 'node App.js'
             }
         }
     }
+}
 }
